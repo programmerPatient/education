@@ -15,4 +15,7 @@
 Route::group(['prefix' => 'admin'],function(){
     //后台登陆页面
     Route::get('public/login','Admin\PublicController@login');
+
+    //后台登陆处理页面
+    Route::post('public/check','Admin\PublicController@check');
 });

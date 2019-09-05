@@ -27,29 +27,30 @@
 <div class="header"></div>
 <div class="loginWraper">
   <div id="loginform" class="loginBox">
-    <form class="form form-horizontal" action="index.html" method="post">
+    <form class="form form-horizontal" action="/admin/public/check" method="post">
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60d;</i></label>
         <div class="formControls col-xs-8">
-          <input id="" name="" type="text" placeholder="账户" class="input-text size-L">
+          <input id="" name="username" type="text" placeholder="账户" class="input-text size-L">
         </div>
       </div>
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe60e;</i></label>
         <div class="formControls col-xs-8">
-          <input id="" name="" type="password" placeholder="密码" class="input-text size-L">
+          <input id="" name="password" type="password" placeholder="密码" class="input-text size-L">
         </div>
       </div>
       <div class="row cl">
         <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe63f;</i></label>
         <div class="formControls col-xs-8">
-          <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
+          <input class="input-text size-L" type="text" name="captcha" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
           <img src="{{ captcha_src() }}"> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
       </div>
+      {{csrf_field()}}
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
           <label for="online">
-            <input type="checkbox" name="online" id="online" value="">
+            <input type="checkbox" name="online" id="online" value="1">
             使我保持登录状态</label>
         </div>
       </div>
@@ -65,6 +66,7 @@
 <div class="footer">Copyright 你的公司名称 by H-ui.admin v3.1</div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript">
   //jquery的载入事件
   $(function(){
@@ -74,6 +76,16 @@
       //获取验证码的地址,为了改变缓存而添加
       $('img').attr('src',src + '&_=' + Math.random() );
     });
+
+    //以javascript弹窗形式输出错误的内容
+     @if(count($errors) > 0)
+        var allError = '';
+        @foreach ($errors->all() as $error)
+        allError+="{{ $error}}</br>";
+       @endforeach
+       //使用alert会很丑，可以使用layer插件进行美化，需要引入layer.js文件
+       layer.alert(allError,{title:'错误提示',icon:5});
+    @endif
   });
 </script>
 </body>

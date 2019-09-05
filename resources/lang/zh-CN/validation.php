@@ -174,4 +174,5 @@ return [
         'available'             => '可用的',
         'size'                  => '大小',
     ],
+    'captcha' => '验证码 错误。'
 ];
