@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+//引入Auth门面
+use Auth;
+
 class PublicController extends Controller
 {
     //登陆界面的展示
@@ -26,5 +29,19 @@ class PublicController extends Controller
             'captcha' => 'required|size:4|captcha'
         ]);
 
+        //继续开始进行身份核实
+        $data = $request -> only(['username','password']);
+        $data['status'] = '2';//要求状态为启用的用户登录
+        $result = Auth::guard('admin') -> attempt($data,$request -> get('online'));
+        //判断是否成功
+        if($result){
+            //跳转到后台首页
+            return redirect('admin/index/index');
+        }else{
+            //withErrors表示带上错误信息
+            return redirect('/admin/public/login') -> withErrors([
+                'loginError' => '用户名或密码错误。'
+            ]);
+        }
     }
 }

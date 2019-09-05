@@ -37,6 +37,7 @@ return [
 
     'guards' => [
         'web' => [
+            //driver表示验证通过后的信息存储的地方，provider表示规则
             'driver' => 'session',
             'provider' => 'users',
         ],
@@ -44,6 +45,12 @@ return [
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+        ],
+
+        //自定义后端guard
+        'admin' =>[
+            'driver' =>'session',
+            'provider' => 'admin',
         ],
     ],
 
@@ -70,6 +77,11 @@ return [
             'model' => App\User::class,
         ],
 
+        //定义admin的provider
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin\Manager::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
