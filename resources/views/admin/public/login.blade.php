@@ -41,9 +41,10 @@
         </div>
       </div>
       <div class="row cl">
-        <div class="formControls col-xs-8 col-xs-offset-3">
+        <label class="form-label col-xs-3"><i class="Hui-iconfont">&#xe63f;</i></label>
+        <div class="formControls col-xs-8">
           <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-          <img src=""> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
+          <img src="{{ captcha_src() }}"> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
       </div>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
@@ -64,5 +65,16 @@
 <div class="footer">Copyright 你的公司名称 by H-ui.admin v3.1</div>
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript">
+  //jquery的载入事件
+  $(function(){
+    //给kanbuq绑定点击事件
+    var src = $('img').attr('src');
+    $('#kanbuq').click(function(){
+      //获取验证码的地址,为了改变缓存而添加
+      $('img').attr('src',src + '&_=' + Math.random() );
+    });
+  });
+</script>
 </body>
 </html>
