@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//后台路由
+Route::group(['prefix' => 'admin'],function(){
+    //后台登陆页面
+    Route::get('public/login','Admin\PublicController@login');
 });
