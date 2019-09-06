@@ -116,6 +116,15 @@
 <script type="text/javascript" src="/admin/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="/admin/lib/laypage/1.2/laypage.js"></script>
 <script type="text/javascript">
+//实例化datatables插件
+$('table').DataTable({
+    //禁用掉第一列的排序
+    "aoColumnDefs": [{ "bSortable" : false, "aTargets" : [0]}],
+    //默认初始化的时候，按照哪一列排序
+    "aaSorting": [['1','asc']],
+    //禁用搜索框
+    "searching":false
+});
 /*
     参数解释：
     title   标题
