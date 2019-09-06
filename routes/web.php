@@ -29,6 +29,9 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'],function(){
     //后台首页的路由
     Route::get('index/index','Admin\IndexController@index');
     Route::get('index/welcome','Admin\IndexController@welcome');
+
+    //管理员的管理模块
+    Route::get('manager/index','Admin\ManagerController@index');
 });
 
 
