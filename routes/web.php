@@ -14,14 +14,22 @@
 //后台路由
 Route::group(['prefix' => 'admin'],function(){
     //后台登陆页面
-    Route::get('public/login','Admin\PublicController@login');
+    Route::get('public/login','Admin\PublicController@login')->name('login');
     //后台退出地址
     Route::get('public/logout','Admin\PublicController@logout');
 
     //后台登陆处理页面
     Route::post('public/check','Admin\PublicController@check');
 
+});
+
+//需要认证的后台路由
+Route::group(['prefix' => 'admin','middleware' => 'admin.auth'],function(){
+
     //后台首页的路由
     Route::get('index/index','Admin\IndexController@index');
     Route::get('index/welcome','Admin\IndexController@welcome');
 });
+
+
+
