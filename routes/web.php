@@ -24,7 +24,7 @@ Route::group(['prefix' => 'admin'],function(){
 });
 
 //需要认证的后台路由
-Route::group(['prefix' => 'admin','middleware' => 'admin.auth'],function(){
+Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],function(){
 
     //后台首页的路由
     Route::get('index/index','Admin\IndexController@index');
@@ -32,6 +32,10 @@ Route::group(['prefix' => 'admin','middleware' => 'admin.auth'],function(){
 
     //管理员的管理模块
     Route::get('manager/index','Admin\ManagerController@index');
+
+    //权限的管理模块
+    Route::get('auth/index','Admin\AuthController@index');
+    Route::any('auth/add','Admin\AuthController@add');
 });
 
 
