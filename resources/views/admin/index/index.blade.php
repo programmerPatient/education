@@ -25,14 +25,27 @@
 <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
 <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
+<style>
+    .navbar-logo{
+        margin-left: 10px;
+    }
+</style>
 <body>
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
-        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">学航教育</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">H-ui</a>
-            <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span>
+        <div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml"><img src="" alt="logo图片位置" style="width:100px;max-height:30px"></a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">logo</a>
+<!--             <span class="logo navbar-slogan f-l mr-10 hidden-xs">v3.1</span> -->
             <a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
-            <nav class="nav navbar-nav">
-                <ul class="cl">
+            <div style="float:left;margin-left:150px">
+                    <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">市场总览</a>
+                    <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国内市场</a>
+                    <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">国际市场</a>
+                    <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">电子商务</a>
+                    <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">财务分析</a>
+                    <a class="logo navbar-logo f-l mr-10 hidden-xs" href="/aboutHui.shtml">烟台</a>
+                </div>
+            <!-- <nav class="nav navbar-nav"> -->
+               <!--  <ul class="cl">
                     <li class="dropDown dropDown_hover"><a href="javascript:;" class="dropDown_A"><i class="Hui-iconfont">&#xe600;</i> 新增 <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
                             <li><a href="javascript:;" onclick="article_add('添加资讯','article-add.html')"><i class="Hui-iconfont">&#xe616;</i> 资讯</a></li>
@@ -41,26 +54,29 @@
                             <li><a href="javascript:;" onclick="member_add('添加用户','member-add.html','','510')"><i class="Hui-iconfont">&#xe60d;</i> 用户</a></li>
                     </ul>
                 </li>
-            </ul>
-        </nav>
+            </ul> -->
+        <!-- </nav> -->
         <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
             <ul class="cl">
-                <li>超级管理员</li>
+                <li>{{Auth::guard('admin')->user()->role->role_name}}</li>
                 <li class="dropDown dropDown_hover">
                     <a href="#" class="dropDown_A">{{ Auth::guard('admin') -> user()->username }} <i class="Hui-iconfont">&#xe6d5;</i></a>
                     <ul class="dropDown-menu menu radius box-shadow">
                         <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                         <li><a href="#">切换账户</a></li>
                         <li><a href="/admin/public/logout">退出</a></li>
-                </ul>
-            </li>
-                <li id="Hui-msg"> <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a> </li>
+                    </ul>
+                </li>
+                <li id="Hui-msg">
+                <!--     <a href="#" title="消息"><span class="badge badge-danger">1</span><i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i>
+                    </a> -->
+                </li>
                 <li id="Hui-skin" class="dropDown right dropDown_hover"> <a href="javascript:;" class="dropDown_A" title="换肤"><i class="Hui-iconfont" style="font-size:18px">&#xe62a;</i></a>
                     <ul class="dropDown-menu menu radius box-shadow">
-                        <li><a href="javascript:;" data-val="default" title="默认（黑色）">默认（黑色）</a></li>
+                        <li><a href="javascript:;" data-val="red" title="默认（红色）">默认（黑色）</a></li>
                         <li><a href="javascript:;" data-val="blue" title="蓝色">蓝色</a></li>
                         <li><a href="javascript:;" data-val="green" title="绿色">绿色</a></li>
-                        <li><a href="javascript:;" data-val="red" title="红色">红色</a></li>
+                        <li><a href="javascript:;" data-val="default" title="黑色">黑色</a></li>
                         <li><a href="javascript:;" data-val="yellow" title="黄色">黄色</a></li>
                         <li><a href="javascript:;" data-val="orange" title="橙色">橙色</a></li>
                     </ul>
@@ -73,37 +89,48 @@
 <aside class="Hui-aside">
     <div class="menu_dropdown bk_2">
         <dl id="menu-article">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 资讯管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe616;</i> 市场销售分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="article-list.html" data-title="资讯管理" href="javascript:void(0)">资讯管理</a></li>
-            </ul>
-        </dd>
-    </dl>
+                    <li><a data-href="article-list.html" data-title="销售完成情况" href="javascript:void(0)">销售完成情况</a></li>
+                    <li><a data-href="article-list.html" data-title="年度销售额分布" href="javascript:void(0)">年度销售额分布</a></li>
+                    <li><a data-href="article-list.html" data-title="月度销售额分布" href="javascript:void(0)">年度销售额分布</a></li>
+                    <li><a data-href="article-list.html" data-title="多年销售额分布" href="javascript:void(0)">多年销售额分布</a></li>
+                    <li><a data-href="article-list.html" data-title="多年度业绩额分析" href="javascript:void(0)">多年度业绩额分析</a></li>
+                    <li><a data-href="article-list.html" data-title="年度业绩额分析" href="javascript:void(0)">年度业绩额分析</a></li>
+                    <li><a data-href="article-list.html" data-title="月度业绩额分析" href="javascript:void(0)">月度业绩额分析</a></li>
+                    <li><a data-href="article-list.html" data-title="年度业绩大单分析" href="javascript:void(0)">年度业绩大单分析</a></li>
+                    <li><a data-href="article-list.html" data-title="月度业绩大单分析" href="javascript:void(0)">月度业绩大单分析</a></li>
+                </ul>
+            </dd>
+        </dl>
         <dl id="menu-picture">
-            <dt><i class="Hui-iconfont">&#xe613;</i> 图片管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe613;</i>市场产品分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="picture-list.html" data-title="图片管理" href="javascript:void(0)">图片管理</a></li>
+                    <li><a data-href="picture-list.html" data-title="图片管理" href="javascript:void(0)">市场产品分析</a></li>
+                    <li><a data-href="picture-list.html" data-title="图片管理" href="javascript:void(0)">市场产品分析</a></li>
+                    <li><a data-href="picture-list.html" data-title="图片管理" href="javascript:void(0)">市场产品分析</a></li>
+                    <li><a data-href="picture-list.html" data-title="图片管理" href="javascript:void(0)">市场产品分析</a></li>
             </ul>
         </dd>
     </dl>
         <dl id="menu-product">
-            <dt><i class="Hui-iconfont">&#xe620;</i> 产品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe620;</i>市场客户分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="product-brand.html" data-title="品牌管理" href="javascript:void(0)">品牌管理</a></li>
-                    <li><a data-href="product-category.html" data-title="分类管理" href="javascript:void(0)">分类管理</a></li>
-                    <li><a data-href="product-list.html" data-title="产品管理" href="javascript:void(0)">产品管理</a></li>
+                    <li><a data-href="product-brand.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
+                    <li><a data-href="product-category.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
+                    <li><a data-href="product-list.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
             </ul>
         </dd>
     </dl>
         <dl id="menu-comments">
-            <dt><i class="Hui-iconfont">&#xe622;</i> 评论管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe622;</i>市场反馈分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="http://h-ui.duoshuo.com/admin/" data-title="评论列表" href="javascript:;">评论列表</a></li>
-                    <li><a data-href="feedback-list.html" data-title="意见反馈" href="javascript:void(0)">意见反馈</a></li>
+                    <li><a data-href="http://h-ui.duoshuo.com/admin/" data-title="市场反馈分析" href="javascript:;">市场反馈分析</a></li>
+                    <li><a data-href="feedback-list.html" data-title="市场反馈分析" href="javascript:void(0)">市场反馈分析</a></li>
             </ul>
         </dd>
     </dl>
@@ -125,35 +152,21 @@
             <dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="admin-role.html" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>
+                    <li><a data-href="/admin/role/index" data-title="角色管理" href="javascript:void(0)">角色管理</a></li>
                     <li><a data-href="/admin/auth/index" data-title="权限管理" href="javascript:void(0)">权限管理</a></li>
                     <li><a data-href="/admin/manager/index" data-title="管理员列表" href="javascript:void(0)">管理员列表</a></li>
             </ul>
         </dd>
     </dl>
-        <dl id="menu-tongji">
-            <dt><i class="Hui-iconfont">&#xe61a;</i> 系统统计<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="charts-1.html" data-title="折线图" href="javascript:void(0)">折线图</a></li>
-                    <li><a data-href="charts-2.html" data-title="时间轴折线图" href="javascript:void(0)">时间轴折线图</a></li>
-                    <li><a data-href="charts-3.html" data-title="区域图" href="javascript:void(0)">区域图</a></li>
-                    <li><a data-href="charts-4.html" data-title="柱状图" href="javascript:void(0)">柱状图</a></li>
-                    <li><a data-href="charts-5.html" data-title="饼状图" href="javascript:void(0)">饼状图</a></li>
-                    <li><a data-href="charts-6.html" data-title="3D柱状图" href="javascript:void(0)">3D柱状图</a></li>
-                    <li><a data-href="charts-7.html" data-title="3D饼状图" href="javascript:void(0)">3D饼状图</a></li>
-            </ul>
-        </dd>
-    </dl>
-        <dl id="menu-system">
-            <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
-            <dd>
-                <ul>
-                    <li><a data-href="system-base.html" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
-                    <li><a data-href="system-category.html" data-title="栏目管理" href="javascript:void(0)">栏目管理</a></li>
-                    <li><a data-href="system-data.html" data-title="数据字典" href="javascript:void(0)">数据字典</a></li>
-                    <li><a data-href="system-shielding.html" data-title="屏蔽词" href="javascript:void(0)">屏蔽词</a></li>
-                    <li><a data-href="system-log.html" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
+    <dl id="menu-system">
+        <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+         <dd>
+            <ul>
+                <li><a data-href="/admin/system/update" data-title="系统设置" href="javascript:void(0)">系统设置</a></li>
+                <li><a data-href="system-category.html" data-title="栏目管理" href="javascript:void(0)">栏目管理</a></li>
+                <li><a data-href="system-data.html" data-title="数据字典" href="javascript:void(0)">数据字典</a></li>
+                <li><a data-href="system-shielding.html" data-title="屏蔽词" href="javascript:void(0)">屏蔽词</a></li>
+                <li><a data-href="system-log.html" data-title="系统日志" href="javascript:void(0)">系统日志</a></li>
             </ul>
         </dd>
     </dl>
@@ -189,8 +202,9 @@
 </ul>
 </div>
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
-<script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
+<!-- <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
+ -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script> <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/admin/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
 

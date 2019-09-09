@@ -68,8 +68,8 @@
                 <th width="150">登录名</th>
                 <th width="90">手机</th>
                 <th width="150">邮箱</th>
-                <th>角色</th>
-                <th width="130">加入时间</th>
+                <th width="100">角色</th>
+                <th width="150">加入时间</th>
                 <th width="100">是否已启用</th>
                 <th width="100">操作</th>
             </tr>
@@ -82,7 +82,7 @@
                 <td>{{$value->username}}</td>
                 <td>{{$value->mobile}}</td>
                 <td>{{$value->email}}</td>
-                <td>{{$value->role_id}}</td>
+                <td>{{$value->role->role_name}}</td>
                 <td>{{$value->created_at}}</td>
                 <td class="td-status">
                     <!--判断账号的状态-->
@@ -105,6 +105,7 @@
         </tbody>
     </table>
 </div>
+</body>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/admin/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/admin/lib/layer/2.4/layer.js"></script>
@@ -184,5 +185,4 @@ function admin_start(obj,id){
     });
 }
 </script>
-</body>
 </html>
