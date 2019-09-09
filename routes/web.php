@@ -40,6 +40,8 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
     //角色的管理模块
     Route::get('role/index','Admin\RoleController@index');
     Route::any('role/assign','Admin\RoleController@assign');
+    Route::any('role/add','Admin\RoleController@add');
+
 });
 
 
