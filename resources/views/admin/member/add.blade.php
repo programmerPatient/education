@@ -117,11 +117,12 @@
                     <label for="status-1">禁用</label>
                 </div>
                 <div class="radio-box">
-                    <input type="radio" id="status-2" name="status">
-                    <label for="status-2" value="2">启用</label>
+                    <input type="radio" id="status-2" name="status" value="2">
+                    <label for="status-2" >启用</label>
                 </div>
             </div>
         </div>
+        {{csrf_field()}}
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                 <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">

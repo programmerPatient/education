@@ -22,6 +22,25 @@ class MemberController extends Controller
     public function add(){
         //判断请求类型
         if(Input::method() == 'POST'){
+            //实现数据的保存
+            //自动验证
+            $result = Member::insert([
+                'username' => Input::get('username'),
+                'password' => bcrypt('password'),
+                'gender' => Input::get('gender'),
+                'mobile' => Input::get('mobile'),
+                'email' => Input::get('email'),
+                'avatar' => '/images/avatar/th.jpg',
+                'country_id' => Input::get('country_id'),
+                'province_id' => Input::get('province_id'),
+                'city_id' => Input::get('city_id'),
+                'county_id' => Input::get('county_id'),
+                'type' => Input::get('type'),
+                'status' => Input::get('status'),
+                'created_at' => date('Y-m-d H:i:s'),
+            ]);
+
+            return $result ? 1:0;
         }else{
             //查询数据
             $country = DB::table('area')->where('pid','0')->get();
