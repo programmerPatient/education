@@ -18,6 +18,7 @@
 <link rel="stylesheet" type="text/css" href="/admin/lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css" href="/admin/static/h-ui.admin/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/admin/webuploader/webuploader.css" />
 <!--[if IE 6]>
 <script type="text/javascript" src="/admin/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
@@ -64,6 +65,18 @@
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
             <div class="formControls col-xs-8 col-sm-9">
                 <input type="text" class="input-text" placeholder="@" name="email" id="email">
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>头像：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <div id="uploader-demo">
+                    <!--用来存放item-->
+                    <div id="fileList" class="uploader-list">
+                        <input type="hidden" name="avatar" value=""/>
+                    </div>
+                    <div id="filePicker">选择图片</div>
+                </div>
             </div>
         </div>
         <div class="row cl">
@@ -142,8 +155,12 @@
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/admin/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<!-- // 引入webuploader的iavascript -->
+<script type="text/javascript" src="/admin/webuploader/webuploader.js"></script>
+<script type="text/javascript" src="/admin/avatar.js"></script>
 <script type="text/javascript">
 $(function(){
+    // var url = "{{csrf_token()}}";//定义一个全局变量，用于post请求的验证
     //在选择国家之后列出省份的数据
     $('select[name=country_id]').change(function(){
         //获取当前国家的id
