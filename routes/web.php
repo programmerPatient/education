@@ -55,6 +55,10 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
     Route::get('profession/index','Admin\ProfessionController@index');
     Route::post('uploader/qiniu','Admin\UploaderController@qiniu');//七牛云上传
 
+    //课程与点播课程的管理
+    Route::get('course/index','Admin\CourseController@index');
+    Route::get('lesson/index','Admin\LessonController@index');
+    Route::get('lesson/play','Admin\LessonController@index');
 });
 
 

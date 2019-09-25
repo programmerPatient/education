@@ -97,6 +97,15 @@
                 </ul>
             </dd>
         </dl>
+        <dl id="menu-article">
+            <dt><i class="Hui-iconfont">&#xe720;</i> 课程管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dd>
+                <ul>
+                    <li><a data-href="/admin/course/index" data-title="课程列表" href="javascript:void(0)">课程列表</a></li>
+                    <li><a data-href="/admin/lesson/index" data-title="点播列表" href="javascript:void(0)">点播列表</a></li>
+                </ul>
+            </dd>
+        </dl>
         <dl id="menu-picture">
             <dt><i class="Hui-iconfont">&#xe613;</i>市场产品分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
