@@ -53,6 +53,7 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
     //专业分类的列表
     Route::get('protype/index','Admin\ProtypeController@index');
     Route::get('profession/index','Admin\ProfessionController@index');
+    Route::post('uploader/qiniu','Admin\UploaderController@qiniu');//七牛云上传
 
 });
 
