@@ -153,6 +153,7 @@ return [
          */
          Mews\Captcha\CaptchaServiceProvider::class,
          Barryvdh\Debugbar\ServiceProvider::class,
+         zgldh\QiniuStorage\QiniuFilesystemServiceProvider::class,
 
         /*
          * Application Service Providers...

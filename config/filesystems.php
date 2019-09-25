@@ -64,6 +64,20 @@ return [
             'url' => env('AWS_URL'),
         ],
 
+        'qiniu' => [
+            'driver'  => 'qiniu',
+            'domains' => [
+                'default'   => 'pydfb3x2c.bkt.clouddn.com', //你的七牛域名
+                'https'     => '',         //你的HTTPS域名
+                'custom'    => '',     //你的自定义域名
+             ],
+            'access_key'=> 'spLvBcFy7UfpwqUTXTQGjl6ax3Omy1EuN_Ov6A1R',  //AccessKey
+            'secret_key'=> '8gCpHIqn7bdVfHVwNd7LzyVg_MrH8AXSI-J9uq6i',  //SecretKey
+            'bucket'    => 'laravel-education',  //Bucket名字
+            'notify_url'=> '',  //持久化处理回调地址
+            'access' =>'public' //空间访问控制
+        ],
+
     ],
 
 ];
