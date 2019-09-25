@@ -89,18 +89,11 @@
 <aside class="Hui-aside">
     <div class="menu_dropdown bk_2">
         <dl id="menu-article">
-            <dt><i class="Hui-iconfont">&#xe616;</i> 市场销售分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe616;</i> 专业管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="article-list.html" data-title="销售完成情况" href="javascript:void(0)">销售完成情况</a></li>
-                    <li><a data-href="article-list.html" data-title="年度销售额分布" href="javascript:void(0)">年度销售额分布</a></li>
-                    <li><a data-href="article-list.html" data-title="月度销售额分布" href="javascript:void(0)">年度销售额分布</a></li>
-                    <li><a data-href="article-list.html" data-title="多年销售额分布" href="javascript:void(0)">多年销售额分布</a></li>
-                    <li><a data-href="article-list.html" data-title="多年度业绩额分析" href="javascript:void(0)">多年度业绩额分析</a></li>
-                    <li><a data-href="article-list.html" data-title="年度业绩额分析" href="javascript:void(0)">年度业绩额分析</a></li>
-                    <li><a data-href="article-list.html" data-title="月度业绩额分析" href="javascript:void(0)">月度业绩额分析</a></li>
-                    <li><a data-href="article-list.html" data-title="年度业绩大单分析" href="javascript:void(0)">年度业绩大单分析</a></li>
-                    <li><a data-href="article-list.html" data-title="月度业绩大单分析" href="javascript:void(0)">月度业绩大单分析</a></li>
+                    <li><a data-href="/admin/protype/index" data-title="专业分类" href="javascript:void(0)">专业分类</a></li>
+                    <li><a data-href="/admin/profession/index" data-title="专业列表" href="javascript:void(0)">专业列表</a></li>
                 </ul>
             </dd>
         </dl>

@@ -44,11 +44,15 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
 
     //会员模块
     Route::get('member/index','Admin\MemberController@index');
-        Route::any('member/add','Admin\MemberController@add');
+    Route::any('member/add','Admin\MemberController@add');
         //异步头像上传
-        Route::post('uploader/webuploader','Admin\UploaderController@webuploader');
+    Route::post('uploader/webuploader','Admin\UploaderController@webuploader');
     //异步四级联动数据获取
     Route::get('member/getAreaById','Admin\MemberController@getAreaById');//ajax联动
+
+    //专业分类的列表
+    Route::get('protype/index','Admin\ProtypeController@index');
+    Route::get('profession/index','Admin\ProfessionController@index');
 
 });
 
