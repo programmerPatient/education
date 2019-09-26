@@ -59,6 +59,12 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
     Route::get('course/index','Admin\CourseController@index');
     Route::get('lesson/index','Admin\LessonController@index');
     Route::get('lesson/play','Admin\LessonController@play');
+
+    //试卷试题管理部分
+    Route::get('paper/index','Admin\PaperController@index');
+    Route::get('question/index','Admin\QuestionController@index');
+    Route::any('question/export','Admin\QuestionController@export');
+    Route::any('question/import','Admin\QuestionController@import');
 });
 
 
