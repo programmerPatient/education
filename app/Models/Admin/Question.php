@@ -9,7 +9,7 @@ class Question extends Model
     protected $table ='question';
 
     //关联Paper模型
-    public function course(){
+    public function paper(){
         return $this->hasOne('App\Models\Admin\Paper','id','paper_id');
     }
 }
