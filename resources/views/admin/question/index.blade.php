@@ -42,7 +42,7 @@
             <a href="javascript:;" onclick="location.href = '/admin/question/export'" class="btn btn-primary radius">
                 <i class="Hui-iconfont">&#xe645;</i> 导出
             </a>
-            <a href="javascript:;" onclick="location.href ='/admin/question/import'" class="btn btn-primary radius">
+            <a href="javascript:;" onclick="_import('导入','/admin/question/import','500')" class="btn btn-primary radius">
                 <i class="Hui-iconfont">&#xe644;</i> 导入
             </a>
         </span>
@@ -121,6 +121,10 @@ function show_options(options){
         option += arr[i] + '</br>';
     }
     layer.alert(option);
+}
+/*试题导入*/
+function _import(title,url,w,h){
+    layer_show(title,url,w,h);
 }
 
 /*用户-添加*/

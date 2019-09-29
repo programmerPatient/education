@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\Question;
 use Excel;
+use Input;
 
 class QuestionController extends Controller
 {
@@ -45,6 +46,37 @@ class QuestionController extends Controller
 
     //导入
     public function import(){
-
+        //判断请求的类型
+        if(Input::method() == 'POST'){
+            //数据的导入
+            $filePath =  Input::get('excelpath');//文件的路径
+            Excel::load($filePath, function($reader) {
+                $data = $reader->getSheet(0)->toArray();
+                //读取全部的数据
+                $temp = [];
+                foreach($data as $key => $value){
+                    //排除表头
+                    if($key == '0'){
+                        //跳出本次循环
+                        continue;
+                    }
+                    //此时value是数组
+                    $temp[] = [
+                        'question' => $value[0],
+                        'paper' => Input::get('paper_id'),
+                        'score' => $value[3],
+                        'options' => $value[1],
+                        'answer' => $value[2],
+                        'created_at' =>date('Y-m-d H:i:s')
+                    ];
+                }
+            });
+            $result = Question::insert($temp);
+            echo $result? '1' : '0';
+        }else{
+            //查询试卷列表
+            $data = \App\Models\Admin\Paper::get();
+            return view('admin.question.import',compact('data'));
+        }
     }
 }
