@@ -65,6 +65,11 @@ Route::group(['prefix' => 'admin','middleware' => ['admin.auth','checkrbac']],fu
     Route::get('question/index','Admin\QuestionController@index');
     Route::any('question/export','Admin\QuestionController@export');
     Route::any('question/import','Admin\QuestionController@import');
+
+    //直播管理
+    Route::get('live/index','Admin\LiveController@index');
+    Route::get('stream/index','Admin\StreamController@index');
+    Route::any('stream/add','Admin\StreamController@add');
 });
 
 

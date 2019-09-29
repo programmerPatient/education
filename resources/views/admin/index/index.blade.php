@@ -116,12 +116,11 @@
         </dd>
     </dl>
         <dl id="menu-product">
-            <dt><i class="Hui-iconfont">&#xe620;</i>市场客户分析<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+            <dt><i class="Hui-iconfont">&#xe66f;</i>直播管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="product-brand.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
-                    <li><a data-href="product-category.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
-                    <li><a data-href="product-list.html" data-title="市场客户分析" href="javascript:void(0)">市场客户分析</a></li>
+                    <li><a data-href="/admin/stream/index" data-title=">直播流列表" href="javascript:void(0)">直播流列表</a></li>
+                    <li><a data-href="/admin/live/index" data-title="直播课程" href="javascript:void(0)">直播课程</a></li>
             </ul>
         </dd>
     </dl>
